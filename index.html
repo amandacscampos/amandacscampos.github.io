@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
     
+
+<script>
 function atualizarPeriodoACEC() {
     const inicio = new Date(2027, 1, 1);
     const hoje = new Date();
@@ -15,13 +17,9 @@ function atualizarPeriodoACEC() {
 
     if (!elemento) return;
 
-    let meses =
+    const meses =
         (hoje.getFullYear() - inicio.getFullYear()) * 12 +
         (hoje.getMonth() - inicio.getMonth());
-
-    if (hoje.getDate() < inicio.getDate()) {
-        meses--;
-    }
 
     if (meses < 0) {
         elemento.textContent = "fev de 2027 · A iniciar";
@@ -34,6 +32,8 @@ function atualizarPeriodoACEC() {
 }
 
 atualizarPeriodoACEC();
+</script>
+
 
 <body>
     <header>
@@ -159,17 +159,19 @@ atualizarPeriodoACEC();
     </div>
 </div>
                     
-<div class="experience-card">
+
+<!-- Bloco ACEC -->
+<div class="experience-item" data-experience="acec">
 
     <h4>Engenharia Civil</h4>
 
     <div class="company">
-        ACEC - Engenheira Civil · Projetos de Engenharia
+        ACEC - Eng Civil · Projetos de Engenharia
     </div>
 
     <div class="date">
         <i class="fas fa-calendar-alt"></i>
-        <span id="acec-periodo"></span>
+        <span id="acec-periodo">fev de 2027 · A iniciar</span>
     </div>
 
     <div class="location">
@@ -177,22 +179,25 @@ atualizarPeriodoACEC();
         <span>Natal, Rio Grande do Norte, Brasil</span>
     </div>
 
-    <p style="text-align: justify; line-height: 1.8;">
-        Atuação no desenvolvimento de projetos de engenharia
-        civil, com foco em projetos estruturais e de instalações
-        prediais, incluindo modelagem, dimensionamento,
-        detalhamento e elaboração de documentação técnica.
-    </p>
+    <div class="experience-description">
+        <p style="text-align: justify;">
+            Atuação no desenvolvimento de projetos de engenharia
+            civil, com foco em projetos estruturais e de instalações
+            prediais, incluindo modelagem, dimensionamento,
+            detalhamento e elaboração de documentação técnica.
+        </p>
+    </div>
 
-    <div class="skills">
-        <span>Projetos Estruturais</span>
-        <span>Instalações Prediais</span>
-        <span>Projetos de Engenharia</span>
-        <span>Dimensionamento</span>
-        <span>Detalhamento</span>
+    <div class="skill-tags">
+        <span class="skill-tag">Projetos Estruturais</span>
+        <span class="skill-tag">Instalações Prediais</span>
+        <span class="skill-tag">Projetos de Engenharia</span>
+        <span class="skill-tag">Dimensionamento</span>
+        <span class="skill-tag">Detalhamento</span>
     </div>
 
 </div>
+
 
                </div>  
                 <!-- COLUNA DIREITA - Softwares, Áreas de Interesse e Cursos Complementares -->
