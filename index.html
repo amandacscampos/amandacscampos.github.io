@@ -6,6 +6,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+    
+function atualizarPeriodoACEC() {
+    const inicio = new Date(2027, 1, 1);
+    const hoje = new Date();
+
+    const elemento = document.getElementById("acec-periodo");
+
+    if (!elemento) return;
+
+    let meses =
+        (hoje.getFullYear() - inicio.getFullYear()) * 12 +
+        (hoje.getMonth() - inicio.getMonth());
+
+    if (hoje.getDate() < inicio.getDate()) {
+        meses--;
+    }
+
+    if (meses < 0) {
+        elemento.textContent = "fev de 2027 · A iniciar";
+    } else {
+        elemento.textContent =
+            `fev de 2027 - o momento · ${meses} ${
+                meses === 1 ? "mês" : "meses"
+            }`;
+    }
+}
+
+atualizarPeriodoACEC();
+
 <body>
     <header>
         <div class="container header-container">
@@ -135,7 +164,7 @@
     <h4>Engenharia Civil</h4>
 
     <div class="company">
-        ACEC - Eng Civil · Projetos de Engenharia
+        ACEC - Engenheira Civil · Projetos de Engenharia
     </div>
 
     <div class="date">
