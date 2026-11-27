@@ -197,6 +197,17 @@ footer .contact-info{max-width:500px;margin:1.5rem auto;}
   footer .portfolio-qr > div { text-align: center !important; font-size: 12pt !important; }
   footer .portfolio-qr strong { font-size: 14pt !important; color: #1a3d8b !important; }
 }
+/* Mantém cada seção do currículo inteira na impressão. */
+@media print {
+  .hero, .cv-experiencias, .cv-softwares, .areas-of-interest,
+  .courses-list, .course-item, footer#contato {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  #sobre h3 { break-after: avoid !important; page-break-after: avoid !important; }
+  .cv-experiencias { display: block !important; }
+  .cv-experiencias > [data-experience="estagio"] { order: initial; }
+}
 </style>
 <!-- =================== FIM DO CSS ======================== -->
 </head>
@@ -261,30 +272,8 @@ footer .contact-info{max-width:500px;margin:1.5rem auto;}
                 <div class="vertical-divider"></div>
                 
                 <!-- COLUNA ESQUERDA -->
-                <div>
+                <div class="cv-experiencias">
                    <h3 class="experience-heading">Experiência Profissional</h3>
-
-<!-- Bloco Monitoria -->
-<div class="experience-item" data-experience="monitoria" role="button" tabindex="0" aria-label="Ver detalhes da monitoria">
-    <h4>Monitora de Cálculo II</h4>
-    <div class="company">UFRN · Bolsista</div>
-    <div class="date">
-        <i class="fas fa-calendar-alt"></i>
-        <span>mar de 2023 - dez 2024 · 1 ano</span>
-    </div>
-    <div class="location">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>Natal, Rio Grande do Norte, Brasil · Presencial</span>
-    </div>
-    <div class="experience-description">
-        <p >Atuei como monitora da disciplina de Cálculo II na Universidade Federal do Rio Grande do Norte, auxiliando os alunos no acompanhamento dos conteúdos da disciplina, resolução de exercícios e esclarecimento de dúvidas relacionadas aos temas abordados em sala de aula. Durante a monitoria, desenvolvi habilidades de comunicação, didática e trabalho em equipe, contribuindo para o apoio acadêmico dos estudantes e para o fortalecimento da minha base em matemática aplicada às engenharias.</p>
-    </div>
-    <div class="skill-tags">
-        <span class="skill-tag">Cálculo I</span>
-        <span class="skill-tag">Cálculo II</span>
-        <span class="skill-tag">Cálculo III</span>
-    </div>
-</div>
 
 <!-- Bloco Estágio -->
 <div class="experience-item" data-experience="estagio" role="button" tabindex="0" aria-label="Ver detalhes do estágio">
@@ -319,11 +308,35 @@ footer .contact-info{max-width:500px;margin:1.5rem auto;}
         <span class="skill-tag">Compatibilização</span>
     </div>
 </div>
+<!-- Bloco Monitoria -->
+<div class="experience-item" data-experience="monitoria" role="button" tabindex="0" aria-label="Ver detalhes da monitoria">
+    <h4>Monitora de Cálculo II</h4>
+    <div class="company">UFRN · Bolsista</div>
+    <div class="date">
+        <i class="fas fa-calendar-alt"></i>
+        <span>mar de 2023 - dez 2024 · 1 ano</span>
+    </div>
+    <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Natal, Rio Grande do Norte, Brasil · Presencial</span>
+    </div>
+    <div class="experience-description">
+        <p >Atuei como monitora da disciplina de Cálculo II na Universidade Federal do Rio Grande do Norte, auxiliando os alunos no acompanhamento dos conteúdos da disciplina, resolução de exercícios e esclarecimento de dúvidas relacionadas aos temas abordados em sala de aula. Durante a monitoria, desenvolvi habilidades de comunicação, didática e trabalho em equipe, contribuindo para o apoio acadêmico dos estudantes e para o fortalecimento da minha base em matemática aplicada às engenharias.</p>
+    </div>
+    <div class="skill-tags">
+        <span class="skill-tag">Cálculo I</span>
+        <span class="skill-tag">Cálculo II</span>
+        <span class="skill-tag">Cálculo III</span>
+    </div>
+</div>
+
+
                     
 
                </div>  
                 <!-- COLUNA DIREITA - Softwares, Áreas de Interesse e Cursos Complementares -->
                 <div>
+                    <div class="cv-softwares">
                     <h3>Softwares</h3>
                     <p>Domínio das seguintes ferramentas e softwares:</p>
                     <div class="software-list">
@@ -337,6 +350,7 @@ footer .contact-info{max-width:500px;margin:1.5rem auto;}
                         <div class="software-chip">Excel</div>
                     </div>
                     
+                    </div>
                     <div class="areas-of-interest">
                         <h3>Áreas de Interesse</h3>
                         <ul class="areas-list">
