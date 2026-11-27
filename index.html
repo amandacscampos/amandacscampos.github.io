@@ -215,24 +215,15 @@ footer .contact-info{max-width:500px;margin:1.5rem auto;}
 <div class="sobre-mim" >
 
     <p>
-        Possuo experiência no desenvolvimento de projetos complementares
-        de engenharia, com atuação em projetos de fundações, geotecnia,
-        instalações hidrossanitárias, orçamentação e compatibilização
-        de projetos em BIM.
+        Possuo experiência no desenvolvimento de projetos complementares de engenharia, com atuação em projetos de fundações, geotecnia, instalações hidrossanitárias, orçamentação e compatibilização de projetos em BIM.
     </p>
 
     <p>
-        Minha atuação é voltada à elaboração de soluções técnicas
-        eficientes, integrando diferentes disciplinas da engenharia
-        e buscando qualidade, precisão e otimização dos processos
-        de projeto.
+        Minha atuação é voltada à elaboração de projetos integrando diferentes disciplinas da engenharia, buscando qualidade e otimização dos processos de projeto.
     </p>
 
     <p>
-        Busco aprimorar meus conhecimentos e competências,
-        valorizando o aprendizado contínuo, a evolução técnica
-        e a participação em projetos que contribuam para meu
-        crescimento pessoal e profissional.
+        Busco aprimorar meus conhecimentos e competências, valorizando o aprendizado contínuo, a evolução técnica e a participação em projetos que contribuam para meu crescimento pessoal e profissional.
     </p>
 
 </div>
@@ -562,12 +553,16 @@ document.getElementById('print-curriculo')?.addEventListener('click', () => wind
     perfil.addEventListener('error', () => {
         if (!perfil.src.endsWith('/Euzinha.jpeg')) perfil.src = 'arquivos/eu/Euzinha.jpeg';
     });
-    setInterval(() => {
+    function avancarFoto() {
         atual = (atual + 1) % fotos.length;
-        if (imagens[atual].complete && imagens[atual].naturalWidth > 0) {
-            perfil.src = fotos[atual];
-        }
-    }, 30000);
+        perfil.src = fotos[atual];
+    }
+    let timer = setInterval(avancarFoto, 30000);
+    perfil.addEventListener('click', () => {
+        avancarFoto();
+        clearInterval(timer);
+        timer = setInterval(avancarFoto, 30000);
+    });
 })();
 
 
