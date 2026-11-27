@@ -1,0 +1,103 @@
+BACKUP PRIVADO — PROJETO FUTURO, NÃO PUBLICAR
+
+Antes de reativar, revise as datas e confirme as atividades efetivamente realizadas.
+1. Inserir o bloco HTML na seção de experiências.
+2. Inserir o script de datas antes do script de perfil.
+3. Inserir a função modal no script de experiências e adicionar acec: openACECModal ao objeto abrir.
+4. CSS opcional de impressão: [data-experience=acec]{order:-3}
+
+<!-- Bloco ACEC -->
+<div class="experience-item" data-experience="acec" role="button" tabindex="0" aria-label="Ver detalhes da experiência na ACEC">
+
+    <h4>Engenharia Civil</h4>
+
+    <div class="company">
+        ACEC - Eng Civil · Projetos de Engenharia
+    </div>
+
+    <div class="date">
+        <span id="acec-periodo">fev de 2027 · A iniciar</span>
+    </div>
+
+    <div class="location">
+        <i class="fas fa-map-marker-alt"></i>
+        <span>Natal, Rio Grande do Norte, Brasil</span>
+    </div>
+
+    <div class="experience-description">
+        <p >
+            Empresa de projetos de engenharia civil com disciplinas estruturais, fundações,
+            contenções, estruturas de madeira e metálicas, além de instalações prediais,
+            incluindo hidrossanitárias, elétricas, gás, climatização e prevenção contra incêndio.
+        </p>
+    </div>
+
+    <div class="skill-tags">
+        <span class="skill-tag">Estruturas</span>
+        <span class="skill-tag">Fundações</span>
+        <span class="skill-tag">Instalações Prediais</span>
+        <span class="skill-tag">PCI</span>
+        <span class="skill-tag">Projetos de Engenharia</span>
+        <span class="skill-tag">Dimensionamento</span>
+        <span class="skill-tag">Detalhamento</span>
+    </div>
+
+</div>
+
+
+
+    <!-- ===================== JAVASCRIPT: DATAS E PERÍODOS ===================== -->
+<script>
+// A ACEC começa em fevereiro de 2027; antes disso, exibe "A iniciar".
+function atualizarPeriodoACEC() {
+    const elemento = document.getElementById('acec-periodo');
+    if (!elemento) return;
+    const hoje = new Date();
+    const inicio = new Date(2027, 1, 1);
+    const meses = (hoje.getFullYear() - inicio.getFullYear()) * 12 + hoje.getMonth() - inicio.getMonth();
+    elemento.textContent = meses < 0
+        ? 'fev de 2027 · A iniciar'
+        : `fev de 2027 - o momento · ${meses} ${meses === 1 ? 'mês' : 'meses'}`;
+}
+document.addEventListener('DOMContentLoaded', atualizarPeriodoACEC);
+
+</script>
+<!-- ===================== FIM: DATAS E PERÍODOS ===================== -->
+
+// Modal - ACEC: disciplinas representadas pelas pastas de projetos.
+function openACECModal() {
+    const modal = document.getElementById('projectModal');
+    document.getElementById('modal-title').textContent = 'ACEC - Eng Civil | Projetos de Engenharia';
+    document.getElementById('modal-description').innerHTML = `
+        <h3>Visão Geral</h3>
+        <p>A ACEC atua na elaboração de projetos de engenharia civil nas áreas de estruturas,
+        fundações e instalações prediais. A experiência está prevista para começar em fevereiro de 2027.</p>
+        <h3>Disciplinas de projetos</h3>
+        <p><strong>Estrutural:</strong> projetos e detalhamento de estruturas.</p>
+        <p><strong>Fundações:</strong> projetos de fundações e soluções de apoio das estruturas.</p>
+        <p><strong>Contenções:</strong> projetos de estruturas de contenção.</p>
+        <p><strong>Madeira:</strong> projetos de estruturas de madeira.</p>
+        <p><strong>Metálicas:</strong> projetos de estruturas metálicas.</p>
+        <p><strong>Hidrossanitário:</strong> instalações de água e esgotamento sanitário.</p>
+        <p><strong>Drenagem:</strong> projetos de drenagem pluvial.</p>
+        <p><strong>Elétrico:</strong> instalações e distribuição elétrica predial.</p>
+        <p><strong>Gás:</strong> instalações prediais de gás.</p>
+        <p><strong>PCI:</strong> prevenção e combate a incêndio.</p>
+        <p><strong>Climatização:</strong> projetos de sistemas de climatização.</p>
+        <p><strong>Comunicações:</strong> infraestrutura de comunicação predial.</p>
+        <h3>Áreas de atuação</h3>
+        <div class="modal-skill-tags">
+            <span class="skill-tag">Projetos Estruturais</span>
+            <span class="skill-tag">Fundações</span>
+            <span class="skill-tag">Contenções</span>
+            <span class="skill-tag">Instalações Prediais</span>
+            <span class="skill-tag">Documentação Técnica</span>
+        </div>
+        <p class="experience-future-note">As disciplinas acima representam o escopo da empresa,
+        não atividades já realizadas nesta experiência futura.</p>
+    `;
+    document.getElementById('modal-files').innerHTML = '';
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
